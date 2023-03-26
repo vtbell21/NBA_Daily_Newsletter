@@ -7,6 +7,8 @@ app = Flask(__name__, static_folder='styles')
 
 port = int(os.environ.get('PORT', 5000))
 
+port = int(os.environ.get('PORT', 5000))
+
 load_dotenv()
 
 server = os.getenv('SERVER')
