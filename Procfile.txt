@@ -1,1 +1,2 @@
-web: gunicorn app:nba-newsletter
+web: gunicorn app:app --env PORT=$PORT
+
