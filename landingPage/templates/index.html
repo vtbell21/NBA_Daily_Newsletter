@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Subscribe to our Newsletter</title>
+    <link rel="stylesheet" type="text/css" href="../styles/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Subscribe to receive updates of daily<br>NBA stat leaders</h1>
+        <form id="subscribe-form" action="{{ url_for('subscribe') }}" method="POST">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </div>
+    <div id="popup">
+        <div class="card">
+            <button class="close">&times;</button>
+            <h2>Thank You for Subscribing</h2>
+            <p>We appreciate your interest in our newsletter and look forward to keeping you informed!</p>
+        </div>
+    </div>
+    <script>
+        // Handle form submission with AJAX
+        var form = document.getElementById('subscribe-form');
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', form.action);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    document.getElementById('popup').style.display = 'block';
+                    form.reset();
+                } else {
+                    console.log('Request failed.  Returned status of ' + xhr.status);
+                }
+            };
+            xhr.send('email=' + form.email.value);
+        });
+
+        // Handle close button
+        var closeButtons = document.querySelectorAll('.close');
+        for (var i = 0; i < closeButtons.length; i++) {
+            closeButtons[i].addEventListener('click', function (event) {
+                event.preventDefault();
+                document.getElementById('popup').style.display = 'none';
+            });
+        }
+    </script>
+</body>
+
+</html>
