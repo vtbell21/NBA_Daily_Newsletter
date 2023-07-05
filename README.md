@@ -1,5 +1,5 @@
-# NBA Daily Stat Leaders App
-The NBA Daily Stat Leaders App is a Python-based application that scrapes an NBA statistics website to retrieve daily stat leader data. It then sends automated emails to users every day, providing them with updates on the daily NBA stat leaders.
+# NBA Daily Newsletter
+The NBA Daily Newsletter App is a Python-based application that scrapes an NBA statistics website to retrieve daily stat leader data. It then sends automated emails to users every day, providing them with updates on the daily NBA stat leaders.
 
 ## Features
 
